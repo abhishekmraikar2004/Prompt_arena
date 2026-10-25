@@ -21,6 +21,10 @@ The mock evaluator runs without an AI key. Gemini evaluation can be enabled with
 
 `npm run dev`, `npm run build`, `npm run lint`, `npm run typecheck`, `npm test`, `npm run test:e2e`, and `npm run format:check`. Before the first E2E run, install its browser with `npx playwright install chromium`.
 
+## Automatic GitHub sync
+
+`npm run dev` also starts a Git watcher. It stages non-ignored project changes, creates an `Auto-sync` commit after five seconds without file changes, then pushes the current branch to `origin`. Run `npm run sync:github` to watch and sync without starting the app. Keep one of these commands running while editing. Git must have working credentials and `origin` must point to your repository. Failed pushes are retried with backoff; `.gitignore` files are excluded.
+
 ## Product notes
 
 - A prepared round shows an approved project-created target; its hidden rubric remains server-side.
